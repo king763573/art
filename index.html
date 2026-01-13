@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>文聖圖藝術風格互動展示 v1.0.0</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --bg-main: #f4f7fb;
+      --bg-card: #ffffff;
+      --bg-card-alt: #f9fbff;
+      --border-soft: #d4dde8;
+      --text-main: #1f2933;
+      --text-sub: #5b6470;
+      --accent: #4a90e2;
+      --accent-soft: #e3f0ff;
+      --tag-bg: #eef3fa;
+      --shadow-soft: 0 10px 25px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", "Noto Sans TC", sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, #f2f6ff 45%, #e8edf7 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      padding: 16px 16px 40px;
+    }
+
+    header {
+      max-width: 1080px;
+      margin: 0 auto 16px;
+      padding: 16px 20px 12px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 14px;
+      border: 1px solid rgba(203, 213, 225, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 20px;
+    }
+
+    .title-block {
+      flex: 1 1 200px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.03em;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .version-label {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #cbd5f5;
+      background: linear-gradient(90deg, #eef2ff, #e0f2fe);
+      color: #1e3a8a;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    .version-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34d399;
+      box-shadow: 0 0 0 4px rgba(52, 211, 153, 0.25);
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font: inherit;
+    }
+
+    .btn {
+      padding: 7px 14px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #22c1c3);
+      color: #ffffff;
+      box-shadow: 0 10px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 13px 24px rgba(37, 99, 235, 0.4);
+      filter: brightness(1.02);
+    }
+
+    .btn-outline {
+      background: #f9fafb;
+      color: #1f2937;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+    }
+
+    .btn-outline:hover {
+      background: #ffffff;
+      border-color: #9ca3af;
+    }
+
+    .icon {
+      font-size: 1rem;
+      display: inline-block;
+    }
+
+    .content {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .search-box {
+      position: relative;
+      flex: 1 1 160px;
+      max-width: 260px;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 7px 28px 7px 26px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      background: rgba(255, 255, 255, 0.85);
+      font-size: 0.85rem;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+    }
+
+    .search-box input:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.45);
+      background: #ffffff;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.78rem;
+    }
+
+    .chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: #e5f0ff;
+      color: #1d4ed8;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .chip:hover {
+      background: #dbeafe;
+    }
+
+    .chip.active {
+      background: #1d4ed8;
+      color: #ffffff;
+      border-color: #1d4ed8;
+      box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.4);
+    }
+
+    .count-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+    }
+
+    .card {
+      background: linear-gradient(135deg, #ffffff, var(--bg-card-alt));
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+      padding: 12px 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 60%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+      border-color: #bfdbfe;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    .style-id {
+      font-size: 0.78rem;
+      color: #6b7280;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.04);
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      font-size: 0.7rem;
+      margin-bottom: 2px;
+    }
+
+    .tag {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: #4b5563;
+    }
+
+    .pill {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .card-media {
+      position: relative;
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #e5e7eb;
+      margin-bottom: 6px;
+      box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+      aspect-ratio: 4 / 3;
+    }
+
+    .card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .card:hover .card-media img {
+      transform: scale(1.03);
+    }
+
+    .card-media-label {
+      position: absolute;
+      left: 8px;
+      bottom: 8px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      font-size: 0.7rem;
+      background: rgba(15, 23, 42, 0.78);
+      color: #e5e7eb;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .card-body {
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .card-body p {
+      margin-bottom: 3px;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-sub);
+    }
+
+    .btn-mini {
+      border-radius: 999px;
+      padding: 2px 6px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      background: rgba(255, 255, 255, 0.5);
+      cursor: default;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    @media (max-width: 640px) {
+      header {
+        padding: 12px 12px 10px;
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      .subtitle {
+        font-size: 0.8rem;
+      }
+      .card {
+        border-radius: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="page">
+    <header>
+      <div class="title-block">
+        <h1>文聖圖藝術風格互動展示</h1>
+        <div class="subtitle">
+          以 16 種繪畫與設計風格，呈現媒材特性、視覺效果與常見應用情境。 [file:1]
+        </div>
+      </div>
+
+      <div class="controls">
+        <span class="version-label">
+          <span class="version-dot"></span>
+          <span>版本 v1.0.0</span>
+        </span>
+        <button id="fullscreenBtn" class="btn btn-primary" type="button">
+          <span class="icon">⛶</span>
+          <span>全螢幕切換</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="toolbar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="輸入關鍵字搜尋：如「人物」「明暗」「插畫」"
+          />
+        </div>
+
+        <div class="chip-group" id="chipGroup">
+          <button class="chip active" data-filter="all" type="button">全部風格</button>
+          <button class="chip" data-filter="drawing" type="button">素描 / 線稿</button>
+          <button class="chip" data-filter="painting" type="button">色彩繪畫</button>
+          <button class="chip" data-filter="design" type="button">設計 / 拼貼</button>
+          <button class="chip" data-filter="traditional" type="button">傳統 / 文化</button>
+        </div>
+
+        <div class="count-label">
+          目前顯示 <span id="visibleCount">16</span> / 16 種風格
+        </div>
+      </section>
+
+      <section id="cardGrid" class="grid">
+        <!-- 卡片由 JavaScript 動態插入 -->
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const stylesData = [
+      {
+        id: 1,
+        name: "鉛筆素描",
+        type: "drawing",
+        mood: "冷靜、寫實、結構感",
+        descMedium: "以鉛筆為主要媒材，透過線條、明暗與筆觸表現形體與結構，畫面多為單色或低彩度。", // [file:1]
+        descLook: "重視光影層次與立體感，適合呈現穩定、冷靜與細膩的視覺氛圍。", // [file:1]
+        descUse: "常用於人物寫生、概念草圖與藝術風格化的造型研究。", // [file:1]
+        image: "001.png"
+      },
+      {
+        id: 2,
+        name: "炭筆素描",
+        type: "drawing",
+        mood: "戲劇性、強烈對比",
+        descMedium: "以炭筆為媒材，色調深沉、對比強烈，能快速表現大面積明暗與粗獷筆觸。", // [file:1]
+        descLook: "畫面情緒感鮮明，黑白對比清楚，富有張力與重量感。", // [file:1]
+        descUse: "適合人物寫生、人體藝術與需要強烈戲劇張力的場景。", // [file:1]
+        image: "002.png"
+      },
+      {
+        id: 3,
+        name: "交叉線稿",
+        type: "drawing",
+        mood: "結構感、細膩層次",
+        descMedium: "利用多層交錯線條表現明暗、陰影與立體感，透過線條方向與密度控制深淺與質感。", // [file:1][web:12]
+        descLook: "畫面具有強烈結構與紋理感，適合解析形體與空間。", // [file:1][web:15]
+        descUse: "常見於素描、插畫與版畫風格的黑白視覺。", // [file:1]
+        image: "003.png"
+      },
+      {
+        id: 4,
+        name: "速寫",
+        type: "drawing",
+        mood: "動勢、節奏、即時感",
+        descMedium: "以快速、簡潔線條捕捉主體姿態與動勢，重視整體比例與動作節奏。", // [file:1]
+        descLook: "線條自由流動，略去細節，保留動感與瞬間印象。", // [file:1]
+        descUse: "多用於人物動態練習、場景記錄與創作構想的即時表現。", // [file:1]
+        image: "004.png"
+      },
+      {
+        id: 5,
+        name: "鋼筆線稿",
+        type: "drawing",
+        mood: "俐落、理性、清晰",
+        descMedium: "以鋼筆或墨線描繪形體，線條乾淨俐落，通常不依賴明暗暈染。", // [file:1]
+        descLook: "高對比、輪廓感強，可呈現乾淨、理性與設計感畫面。", // [file:1]
+        descUse: "常用於插畫、漫畫、設計草圖與風格化構圖。", // [file:1]
+        image: "005.png"
+      },
+      {
+        id: 6,
+        name: "水墨畫",
+        type: "traditional",
+        mood: "意境、留白、氣韻",
+        descMedium: "以水與墨為主要媒材，透過濃淡、乾濕與留白傳達氛圍，而非單純寫實細節。", // [file:1]
+        descLook: "畫面多為黑白或低彩度，重視虛實轉換與節奏，帶有東方美學。", // [file:1]
+        descUse: "常見於山水、人物與花鳥等題材的情感與意境表現。", // [file:1]
+        image: "006.png"
+      },
+      {
+        id: 7,
+        name: "色鉛筆插畫",
+        type: "painting",
+        mood: "溫暖、親近、柔和",
+        descMedium: "以色鉛筆層層疊色與筆觸紋理表現色彩與質感，細節溫潤。", // [file:1]
+        descLook: "畫面色調柔和，有明顯手繪感與細膩肌理。", // [file:1]
+        descUse: "適合人物插畫、童書風格與溫暖日常題材。", // [file:1]
+        image: "007.png"
+      },
+      {
+        id: 8,
+        name: "透明水彩",
+        type: "painting",
+        mood: "清新、輕盈、通透",
+        descMedium: "利用水彩顏料透明特性疊色與留白，營造清透色彩與光感。", // [file:1][web:7]
+        descLook: "色層透明、邊緣柔和，畫面輕盈流動，適合柔和氛圍。", // [file:1]
+        descUse: "常用於插畫、風景與清新風格的藝術表現。", // [file:1]
+        image: "008.png"
+      },
+      {
+        id: 9,
+        name: "麥克筆手繪（設計草圖）",
+        type: "painting",
+        mood: "現代感、速度感",
+        descMedium: "以麥克筆快速鋪色，色彩飽和、筆觸俐落，色塊分明。", // [file:1]
+        descLook: "畫面具現代、設計感與高彩度表現，給人直接明快印象。", // [file:1]
+        descUse: "常用於設計草圖、時尚插畫與需要速度感的表現。", // [file:1]
+        image: "009.png"
+      },
+      {
+        id: 10,
+        name: "麥克筆手繪（風格化）",
+        type: "painting",
+        mood: "鮮明、時尚、張力",
+        descMedium: "同樣以麥克筆為媒材，強調飽和色彩與快速表現。", // [file:1]
+        descLook: "色塊對比強烈，可加強主體與構圖節奏。", // [file:1]
+        descUse: "可用於更風格化的角色與情境設計。", // [file:1]
+        image: "010.png"
+      },
+      {
+        id: 11,
+        name: "黑板粉筆畫",
+        type: "design",
+        mood: "懷舊、手作、教學感",
+        descMedium: "以粉筆在黑板或深色底材上創作，線條帶有顆粒與粉末感。", // [file:1]
+        descLook: "黑底白線或彩線對比強烈，充滿手寫質感與復古氛圍。", // [file:1]
+        descUse: "常用於教學示意、餐廳黑板插畫與懷舊視覺。", // [file:1]
+        image: "011.png"
+      },
+      {
+        id: 12,
+        name: "蠟筆畫",
+        type: "painting",
+        mood: "童趣、活潑、直接",
+        descMedium: "以蠟筆堆疊塗抹，色彩鮮明、筆觸厚實，質感明顯。", // [file:1]
+        descLook: "畫面粗獷中帶有童趣，可營造自由、不受拘束的風格。", // [file:1]
+        descUse: "適合童趣插畫、兒童風格創作與強調手作感的畫面。", // [file:1]
+        image: "012.png"
+      },
+      {
+        id: 13,
+        name: "古埃及莎草紙風格",
+        type: "traditional",
+        mood: "神祕、古文明、象徵性",
+        descMedium: "模仿古埃及在莎草紙上創作的繪畫與書寫風格，多為扁平構圖與簡化線條。", // [file:1]
+        descLook: "常見側面人物、象形文字與裝飾圖案，具有強烈象徵與敘事性。", // [file:1]
+        descUse: "適合歷史主題、神話敘事與營造古文明氛圍的視覺。", // [file:1]
+        image: "013.png"
+      },
+      {
+        id: 14,
+        name: "紙雕藝術",
+        type: "design",
+        mood: "立體、層次、光影感",
+        descMedium: "以紙張剪裁、摺疊與層疊形成立體造型，透過光影表現深度。", // [file:1]
+        descLook: "畫面層次清楚，邊緣俐落，光影變化增強空間感。", // [file:1]
+        descUse: "多用於插畫設計、櫥窗展示與立體視覺裝置。", // [file:1]
+        image: "014.png"
+      },
+      {
+        id: 15,
+        name: "馬賽克拼貼",
+        type: "design",
+        mood: "節奏感、抽象、裝飾性",
+        descMedium: "以大量小色塊或碎片拼貼成完整畫面，顆粒感明顯。", // [file:1]
+        descLook: "視覺細節取決於觀看距離，近看是碎片、遠看成形，具強烈節奏感。", // [file:1]
+        descUse: "常用於裝飾藝術、風格化插畫與復古抽象視覺。", // [file:1]
+        image: "015.png"
+      },
+      {
+        id: 16,
+        name: "彩繪玻璃",
+        type: "design",
+        mood: "神聖、史詩、光之色彩",
+        descMedium: "以彩色玻璃拼接並以金屬線條分隔，依賴透光呈現色彩與圖像。", // [file:1][web:11]
+        descLook: "色彩鮮豔透亮，強烈光影對比，常帶有宗教或象徵性圖像。", // [file:1][web:14]
+        descUse: "適合宗教題材、象徵圖騰與需營造莊嚴氛圍的空間。", // [file:1][web:8]
+        image: "016.png"
+      }
+    ];
+
+    const app = document.getElementById("app");
+    const grid = document.getElementById("cardGrid");
+    const searchInput = document.getElementById("searchInput");
+    const chipGroup = document.getElementById("chipGroup");
+    const visibleCountEl = document.getElementById("visibleCount");
+    const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+    let currentFilter = "all";
+    let currentKeyword = "";
+
+    function mapTypeLabel(type) {
+      switch (type) {
+        case "drawing":
+          return "素描 / 線稿";
+        case "painting":
+          return "色彩繪畫";
+        case "design":
+          return "設計 / 立體";
+        case "traditional":
+          return "傳統 / 文化";
+        default:
+          return "其他";
+      }
+    }
+
+    function renderCards() {
+      const keyword = currentKeyword.trim().toLowerCase();
+      const filter = currentFilter;
+
+      grid.innerHTML = "";
+
+      const filtered = stylesData.filter((s) => {
+        if (filter !== "all" && s.type !== filter) return false;
+        if (keyword) {
+          const text =
+            (s.name + s.mood + s.descMedium + s.descLook + s.descUse).toLowerCase();
+          if (!text.includes(keyword)) return false;
+        }
+        return true;
+      });
+
+      filtered.forEach((s) => {
+        const card = document.createElement("article");
+        card.className = "card";
+
+        card.innerHTML = `
+          <div class="card-header">
+            <div>
+              <div class="card-title">${s.name}</div>
+              <div class="tag-row">
+                <span class="tag">${mapTypeLabel(s.type)}</span>
+                <span class="pill">${s.mood}</span>
+              </div>
+            </div>
+            <span class="style-id">#${String(s.id).padStart(2, "0")}</span>
+          </div>
+
+          <div class="card-media">
+            <img src="${s.image}" alt="${s.name} 範例圖片" loading="lazy" />
+            <span class="card-media-label">${s.image}</span>
+          </div>
+
+          <div class="card-body">
+            <p><strong>媒材特性：</strong>${s.descMedium}</p>
+            <p><strong>視覺效果：</strong>${s.descLook}</p>
+            <p><strong>常見應用：</strong>${s.descUse}</p>
+          </div>
+          <div class="card-footer">
+            <span class="btn-mini">風格預覽</span>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+
+      visibleCountEl.textContent = String(filtered.length);
+    }
+
+    chipGroup.addEventListener("click", (e) => {
+      const btn = e.target.closest(".chip");
+      if (!btn) return;
+      const filter = btn.dataset.filter;
+      if (!filter) return;
+
+      currentFilter = filter;
+      chipGroup.querySelectorAll(".chip").forEach((c) => c.classList.remove("active"));
+      btn.classList.add("active");
+      renderCards();
+    });
+
+    searchInput.addEventListener("input", (e) => {
+      currentKeyword = e.target.value || "";
+      renderCards();
+    });
+
+    fullscreenBtn.addEventListener("click", () => {
+      if (!document.fullscreenElement) {
+        app.requestFullscreen?.();
+      } else {
+        document.exitFullscreen?.();
+      }
+    });
+
+    renderCards();
+  </script>
+</body>
+</html>
