@@ -449,6 +449,7 @@
 
   <script>
     const stylesData = [
+      // --- 原 1–16 項，內容維持不變 ---
       {
         id: 1,
         name: "鉛筆素描",
@@ -474,8 +475,8 @@
         name: "交叉線稿",
         type: "drawing",
         mood: "結構感、細膩層次",
-        descMedium: "利用多層交錯線條表現明暗、陰影與立體感，透過線條方向與密度控制深淺與質感。", // [file:1][web:12]
-        descLook: "畫面具有強烈結構與紋理感，適合解析形體與空間。", // [file:1][web:15]
+        descMedium: "利用多層交錯線條表現明暗、陰影與立體感，透過線條方向與密度控制深淺與質感。", // [file:1]
+        descLook: "畫面具有強烈結構與紋理感，適合解析形體與空間。", // [file:1]
         descUse: "常見於素描、插畫與版畫風格的黑白視覺。", // [file:1]
         image: "003.png"
       },
@@ -524,7 +525,7 @@
         name: "透明水彩",
         type: "painting",
         mood: "清新、輕盈、通透",
-        descMedium: "利用水彩顏料透明特性疊色與留白，營造清透色彩與光感。", // [file:1][web:7]
+        descMedium: "利用水彩顏料透明特性疊色與留白，營造清透色彩與光感。", // [file:1]
         descLook: "色層透明、邊緣柔和，畫面輕盈流動，適合柔和氛圍。", // [file:1]
         descUse: "常用於插畫、風景與清新風格的藝術表現。", // [file:1]
         image: "008.png"
@@ -604,12 +605,175 @@
         name: "彩繪玻璃",
         type: "design",
         mood: "神聖、史詩、光之色彩",
-        descMedium: "以彩色玻璃拼接並以金屬線條分隔，依賴透光呈現色彩與圖像。", // [file:1][web:11]
-        descLook: "色彩鮮豔透亮，強烈光影對比，常帶有宗教或象徵性圖像。", // [file:1][web:14]
-        descUse: "適合宗教題材、象徵圖騰與需營造莊嚴氛圍的空間。", // [file:1][web:8]
+        descMedium: "以彩色玻璃拼接並以金屬線條分隔，依賴透光呈現色彩與圖像。", // [file:1]
+        descLook: "色彩鮮豔透亮，強烈光影對比，常帶有宗教或象徵性圖像。", // [file:1]
+        descUse: "適合宗教題材、象徵圖騰與需營造莊嚴氛圍的空間。", // [file:1]
         image: "016.png"
+      },
+
+      // --- 新增 17–32 項，來自 Wen-Sheng-Tu-Yi-Shu-Feng-Ge-01.pdf ---
+      {
+        id: 17,
+        name: "蒸汽龐克",
+        type: "design",
+        mood: "復古、機械、奇幻",
+        descMedium: "融合維多利亞時代風格與蒸汽機械科技的視覺美學，常見齒輪、管線與黃銅機械。", // [file:32]
+        descLook: "帶有復古未來感，金屬質感與複雜機構細節豐富。", // [file:32]
+        descUse: "常用於奇幻、科幻與架空世界觀的角色、場景與物件設計。", // [file:32]
+        image: "017.png"
+      },
+      {
+        id: 18,
+        name: "慕夏風格",
+        type: "design",
+        mood: "華麗、柔美、裝飾性",
+        descMedium: "源自新藝術運動，以優雅女性、流動曲線與花卉裝飾為核心。", // [file:32]
+        descLook: "畫面常搭配精緻邊框與對稱構圖，色彩柔和且具裝飾藝術氣質。", // [file:32]
+        descUse: "常用於海報、插畫與復古裝飾設計。", // [file:32]
+        image: "018.png"
+      },
+      {
+        id: 19,
+        name: "樂高積木風格",
+        type: "design",
+        mood: "童趣、創意、玩具感",
+        descMedium: "模仿 LEGO 積木視覺，方塊化造型與圓柱顆粒結構為主要特徵。", // [file:32]
+        descLook: "色彩鮮明、比例可愛，具有強烈玩具與模型質感。", // [file:32]
+        descUse: "常用於角色重製、場景模型化與收藏感視覺表現。", // [file:32]
+        image: "019.png"
+      },
+      {
+        id: 20,
+        name: "賽博龐克",
+        type: "design",
+        mood: "冷冽、叛逆、科技感",
+        descMedium: "結合高科技與低生活水準的未來美學，常見霓虹燈、全息投影與機械改造。", // [file:32]
+        descLook: "夜色城市與強烈對比光影營造密集、壓迫但迷人的城市氛圍。", // [file:32]
+        descUse: "多用於科幻、未來都市與反烏托邦題材。", // [file:32]
+        image: "020.png"
+      },
+      {
+        id: 21,
+        name: "點描畫",
+        type: "painting",
+        mood: "細膩、節奏、耐心",
+        descMedium: "以大量細小色點組成畫面，透過點的密度與色彩排列表現明暗與形體。", // [file:32]
+        descLook: "近看是點狀紋理，遠看則融合成完整色面，具獨特視覺節奏。", // [file:32]
+        descUse: "常用於風格化插畫與藝術創作。", // [file:32]
+        image: "021.png"
+      },
+      {
+        id: 22,
+        name: "亞麻油氈版畫",
+        type: "traditional",
+        mood: "手工、強對比、裝飾感",
+        descMedium: "以亞麻油氈為版材雕刻，再上墨印刷的版畫技法，線條俐落有力。", // [file:32]
+        descLook: "大色塊與清楚輪廓形成強烈黑白或彩色對比，帶有明顯雕刻痕跡。", // [file:32]
+        descUse: "適合插畫、海報與風格鮮明的藝術創作。", // [file:32]
+        image: "022.png"
+      },
+      {
+        id: 23,
+        name: "科幻未來風",
+        type: "design",
+        mood: "高科技、未知、冷色調",
+        descMedium: "以未來科技與想像世界為核心，常見高科技裝置、未來建築與全息介面。", // [file:32]
+        descLook: "多採冷色光源與金屬或玻璃質感，氛圍充滿科技感與未知感。", // [file:32]
+        descUse: "常用於未來世界觀、太空、AI 與科幻題材。", // [file:32]
+        image: "023.png"
+      },
+      {
+        id: 24,
+        name: "刺繡藝術",
+        type: "traditional",
+        mood: "溫度、細膩、手工感",
+        descMedium: "以針線在布料上縫製圖案，藉由線條走向與針法變化呈現紋理與立體感。", // [file:32]
+        descLook: "表面有纖維光澤與層層疊線，細節精緻且富觸感想像。", // [file:32]
+        descUse: "常用於服裝裝飾、民俗圖樣與風格化插畫。", // [file:32]
+        image: "024.png"
+      },
+      {
+        id: 25,
+        name: "油畫",
+        type: "painting",
+        mood: "厚重、情緒、寫實到表現",
+        descMedium: "以油性顏料創作，能呈現厚實、飽滿且層次豐富的色彩與筆觸。", // [file:32]
+        descLook: "透過堆疊與厚塗，可強烈表現光影、質感與情緒張力。", // [file:32]
+        descUse: "常用於人物肖像、風景與高藝術性表現。", // [file:32]
+        image: "025.png"
+      },
+      {
+        id: 26,
+        name: "浮世繪",
+        type: "traditional",
+        mood: "敘事、裝飾、日本美學",
+        descMedium: "日本江戶時代盛行的木版畫風格，平面化構圖與清晰線條是其特徵。", // [file:32]
+        descLook: "鮮明色塊與強烈裝飾性設計，常見浪、山、人物等主題。", // [file:32]
+        descUse: "多描繪人物、風景與日常生活，展現濃厚傳統美學與故事性。", // [file:32]
+        image: "026.png"
+      },
+      {
+        id: 27,
+        name: "浮雕藝術",
+        type: "design",
+        mood: "莊重、歷史感、立體光影",
+        descMedium: "在平面基底上雕刻，讓形體向外凸起或內凹的立體藝術形式。", // [file:32]
+        descLook: "結合平面構圖與立體深度，光影變化清楚強調形體結構。", // [file:32]
+        descUse: "常用於建築裝飾、雕塑與具紀念性、歷史感的作品。", // [file:32]
+        image: "027.png"
+      },
+      {
+        id: 28,
+        name: "野獸派繪畫",
+        type: "painting",
+        mood: "奔放、強色彩、情緒化",
+        descMedium: "以強烈、純粹色彩為核心，不追求寫實色彩，常用誇張對比色與大筆觸。", // [file:32]
+        descLook: "造型簡化，色彩主導畫面，重視情緒與力量感。", // [file:32]
+        descUse: "適合表現強烈情感與主觀視覺印象。", // [file:32]
+        image: "028.png"
+      },
+      {
+        id: 29,
+        name: "街頭塗鴉",
+        type: "design",
+        mood: "反叛、大膽、街頭文化",
+        descMedium: "源自城市公共空間，以噴漆與大字體、符號形式創作。", // [file:32]
+        descLook: "色彩鮮豔、構圖自由，充滿標語感與視覺衝擊力。", // [file:32]
+        descUse: "常用於表達個人態度、社會議題或街頭文化。", // [file:32]
+        image: "029.png"
+      },
+      {
+        id: 30,
+        name: "像素藝術",
+        type: "design",
+        mood: "復古、遊戲感、簡化造型",
+        descMedium: "以可見像素格為基本單位構成影像，造型與色塊高度簡化。", // [file:32]
+        descLook: "邊緣清晰、格點感明顯，帶有 8-bit / 16-bit 懷舊風格。", // [file:32]
+        descUse: "常用於復古遊戲、圖示設計與數位懷舊視覺。", // [file:32]
+        image: "030.png"
+      },
+      {
+        id: 31,
+        name: "蒸汽波美學",
+        type: "design",
+        mood: "迷幻、懷舊、超現實",
+        descMedium: "融合復古數位文化與超現實元素，常見粉紫霓虹、低解析度與復古介面。", // [file:32]
+        descLook: "畫面常結合古典雕像與 80～90 年代流行符號，色彩虛幻夢境感強。", // [file:32]
+        descUse: "多用於音樂視覺、數位藝術與風格化插畫。", // [file:32]
+        image: "031.png"
+      },
+      {
+        id: 32,
+        name: "橡皮泥模型",
+        type: "design",
+        mood: "可愛、童趣、立體手作",
+        descMedium: "以橡皮泥或黏土手工塑形，造型圓潤且比例誇張，表面保留手捏痕跡。", // [file:32]
+        descLook: "立體感強、質地柔軟，給人溫暖與親切的視覺印象。", // [file:32]
+        descUse: "常用於角色模型、定格動畫與童趣風格視覺。", // [file:32]
+        image: "032.png"
       }
     ];
+
 
     const app = document.getElementById("app");
     const grid = document.getElementById("cardGrid");
