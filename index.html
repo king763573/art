@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8" />
-  <title>文生圖藝術風格互動展示 v1.0.0</title>
+  <title>文生圖藝術風格互動展示 v1.1.0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     :root {
@@ -401,14 +401,14 @@
       <div class="title-block">
         <h1>文生圖藝術風格互動展示</h1>
         <div class="subtitle">
-          以 16 種繪畫與設計風格，呈現媒材特性、視覺效果與常見應用情境。 [file:1]
+          以 62 種繪畫與設計風格，呈現媒材特性、視覺效果與常見應用情境。
         </div>
       </div>
 
       <div class="controls">
         <span class="version-label">
           <span class="version-dot"></span>
-          <span>版本 v1.0.0</span>
+          <span>版本 v1.1.0</span>
         </span>
         <button id="fullscreenBtn" class="btn btn-primary" type="button">
           <span class="icon">⛶</span>
@@ -432,12 +432,12 @@
           <button class="chip active" data-filter="all" type="button">全部風格</button>
           <button class="chip" data-filter="drawing" type="button">素描 / 線稿</button>
           <button class="chip" data-filter="painting" type="button">色彩繪畫</button>
-          <button class="chip" data-filter="design" type="button">設計 / 拼貼</button>
+          <button class="chip" data-filter="design" type="button">設計 / 3D</button>
           <button class="chip" data-filter="traditional" type="button">傳統 / 文化</button>
         </div>
 
         <div class="count-label">
-          目前顯示 <span id="visibleCount">16</span> / 16 種風格
+          目前顯示 <span id="visibleCount">0</span> / 62 種風格
         </div>
       </section>
 
@@ -455,9 +455,9 @@
         name: "鉛筆素描",
         type: "drawing",
         mood: "冷靜、寫實、結構感",
-        descMedium: "以鉛筆為主要媒材，透過線條、明暗與筆觸表現形體與結構，畫面多為單色或低彩度。", // [file:1]
-        descLook: "重視光影層次與立體感，適合呈現穩定、冷靜與細膩的視覺氛圍。", // [file:1]
-        descUse: "常用於人物寫生、概念草圖與藝術風格化的造型研究。", // [file:1]
+        descMedium: "以鉛筆為主要媒材，透過線條、明暗與筆觸表現形體與結構，畫面多為單色或低彩度。",
+        descLook: "重視光影層次與立體感，適合呈現穩定、冷靜與細膩的視覺氛圍。",
+        descUse: "常用於人物寫生、概念草圖與藝術風格化的造型研究。",
         image: "001.png"
       },
       {
@@ -465,9 +465,9 @@
         name: "炭筆素描",
         type: "drawing",
         mood: "戲劇性、強烈對比",
-        descMedium: "以炭筆為媒材，色調深沉、對比強烈，能快速表現大面積明暗與粗獷筆觸。", // [file:1]
-        descLook: "畫面情緒感鮮明，黑白對比清楚，富有張力與重量感。", // [file:1]
-        descUse: "適合人物寫生、人體藝術與需要強烈戲劇張力的場景。", // [file:1]
+        descMedium: "以炭筆為媒材，色調深沉、對比強烈，能快速表現大面積明暗與粗獷筆觸。",
+        descLook: "畫面情緒感鮮明，黑白對比清楚，富有張力與重量感。",
+        descUse: "適合人物寫生、人體藝術與需要強烈戲劇張力的場景。",
         image: "002.png"
       },
       {
@@ -475,9 +475,9 @@
         name: "交叉線稿",
         type: "drawing",
         mood: "結構感、細膩層次",
-        descMedium: "利用多層交錯線條表現明暗、陰影與立體感，透過線條方向與密度控制深淺與質感。", // [file:1]
-        descLook: "畫面具有強烈結構與紋理感，適合解析形體與空間。", // [file:1]
-        descUse: "常見於素描、插畫與版畫風格的黑白視覺。", // [file:1]
+        descMedium: "利用多層交錯線條表現明暗、陰影與立體感，透過線條方向與密度控制深淺與質感。",
+        descLook: "畫面具有強烈結構與紋理感，適合解析形體與空間。",
+        descUse: "常見於素描、插畫與版畫風格的黑白視覺。",
         image: "003.png"
       },
       {
@@ -485,9 +485,9 @@
         name: "速寫",
         type: "drawing",
         mood: "動勢、節奏、即時感",
-        descMedium: "以快速、簡潔線條捕捉主體姿態與動勢，重視整體比例與動作節奏。", // [file:1]
-        descLook: "線條自由流動，略去細節，保留動感與瞬間印象。", // [file:1]
-        descUse: "多用於人物動態練習、場景記錄與創作構想的即時表現。", // [file:1]
+        descMedium: "以快速、簡潔線條捕捉主體姿態與動勢，重視整體比例與動作節奏。",
+        descLook: "線條自由流動，略去細節，保留動感與瞬間印象。",
+        descUse: "多用於人物動態練習、場景記錄與創作構想的即時表現。",
         image: "004.png"
       },
       {
@@ -495,9 +495,9 @@
         name: "鋼筆線稿",
         type: "drawing",
         mood: "俐落、理性、清晰",
-        descMedium: "以鋼筆或墨線描繪形體，線條乾淨俐落，通常不依賴明暗暈染。", // [file:1]
-        descLook: "高對比、輪廓感強，可呈現乾淨、理性與設計感畫面。", // [file:1]
-        descUse: "常用於插畫、漫畫、設計草圖與風格化構圖。", // [file:1]
+        descMedium: "以鋼筆或墨線描繪形體，線條乾淨俐落，通常不依賴明暗暈染。",
+        descLook: "高對比、輪廓感強，可呈現乾淨、理性與設計感畫面。",
+        descUse: "常用於插畫、漫畫、設計草圖與風格化構圖。",
         image: "005.png"
       },
       {
@@ -505,9 +505,9 @@
         name: "水墨畫",
         type: "traditional",
         mood: "意境、留白、氣韻",
-        descMedium: "以水與墨為主要媒材，透過濃淡、乾濕與留白傳達氛圍，而非單純寫實細節。", // [file:1]
-        descLook: "畫面多為黑白或低彩度，重視虛實轉換與節奏，帶有東方美學。", // [file:1]
-        descUse: "常見於山水、人物與花鳥等題材的情感與意境表現。", // [file:1]
+        descMedium: "以水與墨為主要媒材，透過濃淡、乾濕與留白傳達氛圍，而非單純寫實細節。",
+        descLook: "畫面多為黑白或低彩度，重視虛實轉換與節奏，帶有東方美學。",
+        descUse: "常見於山水、人物與花鳥等題材的情感與意境表現。",
         image: "006.png"
       },
       {
@@ -515,9 +515,9 @@
         name: "色鉛筆插畫",
         type: "painting",
         mood: "溫暖、親近、柔和",
-        descMedium: "以色鉛筆層層疊色與筆觸紋理表現色彩與質感，細節溫潤。", // [file:1]
-        descLook: "畫面色調柔和，有明顯手繪感與細膩肌理。", // [file:1]
-        descUse: "適合人物插畫、童書風格與溫暖日常題材。", // [file:1]
+        descMedium: "以色鉛筆層層疊色與筆觸紋理表現色彩與質感，細節溫潤。",
+        descLook: "畫面色調柔和，有明顯手繪感與細膩肌理。",
+        descUse: "適合人物插畫、童書風格與溫暖日常題材。",
         image: "007.png"
       },
       {
@@ -525,9 +525,9 @@
         name: "透明水彩",
         type: "painting",
         mood: "清新、輕盈、通透",
-        descMedium: "利用水彩顏料透明特性疊色與留白，營造清透色彩與光感。", // [file:1]
-        descLook: "色層透明、邊緣柔和，畫面輕盈流動，適合柔和氛圍。", // [file:1]
-        descUse: "常用於插畫、風景與清新風格的藝術表現。", // [file:1]
+        descMedium: "利用水彩顏料透明特性疊色與留白，營造清透色彩與光感。",
+        descLook: "色層透明、邊緣柔和，畫面輕盈流動，適合柔和氛圍。",
+        descUse: "常用於插畫、風景與清新風格的藝術表現。",
         image: "008.png"
       },
       {
@@ -535,9 +535,9 @@
         name: "麥克筆手繪（設計草圖）",
         type: "painting",
         mood: "現代感、速度感",
-        descMedium: "以麥克筆快速鋪色，色彩飽和、筆觸俐落，色塊分明。", // [file:1]
-        descLook: "畫面具現代、設計感與高彩度表現，給人直接明快印象。", // [file:1]
-        descUse: "常用於設計草圖、時尚插畫與需要速度感的表現。", // [file:1]
+        descMedium: "以麥克筆快速鋪色，色彩飽和、筆觸俐落，色塊分明。",
+        descLook: "畫面具現代、設計感與高彩度表現，給人直接明快印象。",
+        descUse: "常用於設計草圖、時尚插畫與需要速度感的表現。",
         image: "009.png"
       },
       {
@@ -545,9 +545,9 @@
         name: "麥克筆手繪（風格化）",
         type: "painting",
         mood: "鮮明、時尚、張力",
-        descMedium: "同樣以麥克筆為媒材，強調飽和色彩與快速表現。", // [file:1]
-        descLook: "色塊對比強烈，可加強主體與構圖節奏。", // [file:1]
-        descUse: "可用於更風格化的角色與情境設計。", // [file:1]
+        descMedium: "同樣以麥克筆為媒材，強調飽和色彩與快速表現。",
+        descLook: "色塊對比強烈，可加強主體與構圖節奏。",
+        descUse: "可用於更風格化的角色與情境設計。",
         image: "010.png"
       },
       {
@@ -555,9 +555,9 @@
         name: "黑板粉筆畫",
         type: "design",
         mood: "懷舊、手作、教學感",
-        descMedium: "以粉筆在黑板或深色底材上創作，線條帶有顆粒與粉末感。", // [file:1]
-        descLook: "黑底白線或彩線對比強烈，充滿手寫質感與復古氛圍。", // [file:1]
-        descUse: "常用於教學示意、餐廳黑板插畫與懷舊視覺。", // [file:1]
+        descMedium: "以粉筆在黑板或深色底材上創作，線條帶有顆粒與粉末感。",
+        descLook: "黑底白線或彩線對比強烈，充滿手寫質感與復古氛圍。",
+        descUse: "常用於教學示意、餐廳黑板插畫與懷舊視覺。",
         image: "011.png"
       },
       {
@@ -565,9 +565,9 @@
         name: "蠟筆畫",
         type: "painting",
         mood: "童趣、活潑、直接",
-        descMedium: "以蠟筆堆疊塗抹，色彩鮮明、筆觸厚實，質感明顯。", // [file:1]
-        descLook: "畫面粗獷中帶有童趣，可營造自由、不受拘束的風格。", // [file:1]
-        descUse: "適合童趣插畫、兒童風格創作與強調手作感的畫面。", // [file:1]
+        descMedium: "以蠟筆堆疊塗抹，色彩鮮明、筆觸厚實，質感明顯。",
+        descLook: "畫面粗獷中帶有童趣，可營造自由、不受拘束的風格。",
+        descUse: "適合童趣插畫、兒童風格創作與強調手作感的畫面。",
         image: "012.png"
       },
       {
@@ -575,9 +575,9 @@
         name: "古埃及莎草紙風格",
         type: "traditional",
         mood: "神祕、古文明、象徵性",
-        descMedium: "模仿古埃及在莎草紙上創作的繪畫與書寫風格，多為扁平構圖與簡化線條。", // [file:1]
-        descLook: "常見側面人物、象形文字與裝飾圖案，具有強烈象徵與敘事性。", // [file:1]
-        descUse: "適合歷史主題、神話敘事與營造古文明氛圍的視覺。", // [file:1]
+        descMedium: "模仿古埃及在莎草紙上創作的繪畫與書寫風格，多為扁平構圖與簡化線條。",
+        descLook: "常見側面人物、象形文字與裝飾圖案，具有強烈象徵與敘事性。",
+        descUse: "適合歷史主題、神話敘事與營造古文明氛圍的視覺。",
         image: "013.png"
       },
       {
@@ -585,9 +585,9 @@
         name: "紙雕藝術",
         type: "design",
         mood: "立體、層次、光影感",
-        descMedium: "以紙張剪裁、摺疊與層疊形成立體造型，透過光影表現深度。", // [file:1]
-        descLook: "畫面層次清楚，邊緣俐落，光影變化增強空間感。", // [file:1]
-        descUse: "多用於插畫設計、櫥窗展示與立體視覺裝置。", // [file:1]
+        descMedium: "以紙張剪裁、摺疊與層疊形成立體造型，透過光影表現深度。",
+        descLook: "畫面層次清楚，邊緣俐落，光影變化增強空間感。",
+        descUse: "多用於插畫設計、櫥窗展示與立體視覺裝置。",
         image: "014.png"
       },
       {
@@ -595,9 +595,9 @@
         name: "馬賽克拼貼",
         type: "design",
         mood: "節奏感、抽象、裝飾性",
-        descMedium: "以大量小色塊或碎片拼貼成完整畫面，顆粒感明顯。", // [file:1]
-        descLook: "視覺細節取決於觀看距離，近看是碎片、遠看成形，具強烈節奏感。", // [file:1]
-        descUse: "常用於裝飾藝術、風格化插畫與復古抽象視覺。", // [file:1]
+        descMedium: "以大量小色塊或碎片拼貼成完整畫面，顆粒感明顯。",
+        descLook: "視覺細節取決於觀看距離，近看是碎片、遠看成形，具強烈節奏感。",
+        descUse: "常用於裝飾藝術、風格化插畫與復古抽象視覺。",
         image: "015.png"
       },
       {
@@ -605,21 +605,20 @@
         name: "彩繪玻璃",
         type: "design",
         mood: "神聖、史詩、光之色彩",
-        descMedium: "以彩色玻璃拼接並以金屬線條分隔，依賴透光呈現色彩與圖像。", // [file:1]
-        descLook: "色彩鮮豔透亮，強烈光影對比，常帶有宗教或象徵性圖像。", // [file:1]
-        descUse: "適合宗教題材、象徵圖騰與需營造莊嚴氛圍的空間。", // [file:1]
+        descMedium: "以彩色玻璃拼接並以金屬線條分隔，依賴透光呈現色彩與圖像。",
+        descLook: "色彩鮮豔透亮，強烈光影對比，常帶有宗教或象徵性圖像。",
+        descUse: "適合宗教題材、象徵圖騰與需營造莊嚴氛圍的空間。",
         image: "016.png"
       },
-
-      // --- 新增 17–32 項，來自 Wen-Sheng-Tu-Yi-Shu-Feng-Ge-01.pdf ---
+      // --- 原 17–32 項，內容維持不變 ---
       {
         id: 17,
         name: "蒸汽龐克",
         type: "design",
         mood: "復古、機械、奇幻",
-        descMedium: "融合維多利亞時代風格與蒸汽機械科技的視覺美學，常見齒輪、管線與黃銅機械。", // [file:32]
-        descLook: "帶有復古未來感，金屬質感與複雜機構細節豐富。", // [file:32]
-        descUse: "常用於奇幻、科幻與架空世界觀的角色、場景與物件設計。", // [file:32]
+        descMedium: "融合維多利亞時代風格與蒸汽機械科技的視覺美學，常見齒輪、管線與黃銅機械。",
+        descLook: "帶有復古未來感，金屬質感與複雜機構細節豐富。",
+        descUse: "常用於奇幻、科幻與架空世界觀的角色、場景與物件設計。",
         image: "017.png"
       },
       {
@@ -627,9 +626,9 @@
         name: "慕夏風格",
         type: "design",
         mood: "華麗、柔美、裝飾性",
-        descMedium: "源自新藝術運動，以優雅女性、流動曲線與花卉裝飾為核心。", // [file:32]
-        descLook: "畫面常搭配精緻邊框與對稱構圖，色彩柔和且具裝飾藝術氣質。", // [file:32]
-        descUse: "常用於海報、插畫與復古裝飾設計。", // [file:32]
+        descMedium: "源自新藝術運動，以優雅女性、流動曲線與花卉裝飾為核心。",
+        descLook: "畫面常搭配精緻邊框與對稱構圖，色彩柔和且具裝飾藝術氣質。",
+        descUse: "常用於海報、插畫與復古裝飾設計。",
         image: "018.png"
       },
       {
@@ -637,9 +636,9 @@
         name: "樂高積木風格",
         type: "design",
         mood: "童趣、創意、玩具感",
-        descMedium: "模仿 LEGO 積木視覺，方塊化造型與圓柱顆粒結構為主要特徵。", // [file:32]
-        descLook: "色彩鮮明、比例可愛，具有強烈玩具與模型質感。", // [file:32]
-        descUse: "常用於角色重製、場景模型化與收藏感視覺表現。", // [file:32]
+        descMedium: "模仿 LEGO 積木視覺，方塊化造型與圓柱顆粒結構為主要特徵。",
+        descLook: "色彩鮮明、比例可愛，具有強烈玩具與模型質感。",
+        descUse: "常用於角色重製、場景模型化與收藏感視覺表現。",
         image: "019.png"
       },
       {
@@ -647,9 +646,9 @@
         name: "賽博龐克",
         type: "design",
         mood: "冷冽、叛逆、科技感",
-        descMedium: "結合高科技與低生活水準的未來美學，常見霓虹燈、全息投影與機械改造。", // [file:32]
-        descLook: "夜色城市與強烈對比光影營造密集、壓迫但迷人的城市氛圍。", // [file:32]
-        descUse: "多用於科幻、未來都市與反烏托邦題材。", // [file:32]
+        descMedium: "結合高科技與低生活水準的未來美學，常見霓虹燈、全息投影與機械改造。",
+        descLook: "夜色城市與強烈對比光影營造密集、壓迫但迷人的城市氛圍。",
+        descUse: "多用於科幻、未來都市與反烏托邦題材。",
         image: "020.png"
       },
       {
@@ -657,9 +656,9 @@
         name: "點描畫",
         type: "painting",
         mood: "細膩、節奏、耐心",
-        descMedium: "以大量細小色點組成畫面，透過點的密度與色彩排列表現明暗與形體。", // [file:32]
-        descLook: "近看是點狀紋理，遠看則融合成完整色面，具獨特視覺節奏。", // [file:32]
-        descUse: "常用於風格化插畫與藝術創作。", // [file:32]
+        descMedium: "以大量細小色點組成畫面，透過點的密度與色彩排列表現明暗與形體。",
+        descLook: "近看是點狀紋理，遠看則融合成完整色面，具獨特視覺節奏。",
+        descUse: "常用於風格化插畫與藝術創作。",
         image: "021.png"
       },
       {
@@ -667,9 +666,9 @@
         name: "亞麻油氈版畫",
         type: "traditional",
         mood: "手工、強對比、裝飾感",
-        descMedium: "以亞麻油氈為版材雕刻，再上墨印刷的版畫技法，線條俐落有力。", // [file:32]
-        descLook: "大色塊與清楚輪廓形成強烈黑白或彩色對比，帶有明顯雕刻痕跡。", // [file:32]
-        descUse: "適合插畫、海報與風格鮮明的藝術創作。", // [file:32]
+        descMedium: "以亞麻油氈為版材雕刻，再上墨印刷的版畫技法，線條俐落有力。",
+        descLook: "大色塊與清楚輪廓形成強烈黑白或彩色對比，帶有明顯雕刻痕跡。",
+        descUse: "適合插畫、海報與風格鮮明的藝術創作。",
         image: "022.png"
       },
       {
@@ -677,9 +676,9 @@
         name: "科幻未來風",
         type: "design",
         mood: "高科技、未知、冷色調",
-        descMedium: "以未來科技與想像世界為核心，常見高科技裝置、未來建築與全息介面。", // [file:32]
-        descLook: "多採冷色光源與金屬或玻璃質感，氛圍充滿科技感與未知感。", // [file:32]
-        descUse: "常用於未來世界觀、太空、AI 與科幻題材。", // [file:32]
+        descMedium: "以未來科技與想像世界為核心，常見高科技裝置、未來建築與全息介面。",
+        descLook: "多採冷色光源與金屬或玻璃質感，氛圍充滿科技感與未知感。",
+        descUse: "常用於未來世界觀、太空、AI 與科幻題材。",
         image: "023.png"
       },
       {
@@ -687,9 +686,9 @@
         name: "刺繡藝術",
         type: "traditional",
         mood: "溫度、細膩、手工感",
-        descMedium: "以針線在布料上縫製圖案，藉由線條走向與針法變化呈現紋理與立體感。", // [file:32]
-        descLook: "表面有纖維光澤與層層疊線，細節精緻且富觸感想像。", // [file:32]
-        descUse: "常用於服裝裝飾、民俗圖樣與風格化插畫。", // [file:32]
+        descMedium: "以針線在布料上縫製圖案，藉由線條走向與針法變化呈現紋理與立體感。",
+        descLook: "表面有纖維光澤與層層疊線，細節精緻且富觸感想像。",
+        descUse: "常用於服裝裝飾、民俗圖樣與風格化插畫。",
         image: "024.png"
       },
       {
@@ -697,9 +696,9 @@
         name: "油畫",
         type: "painting",
         mood: "厚重、情緒、寫實到表現",
-        descMedium: "以油性顏料創作，能呈現厚實、飽滿且層次豐富的色彩與筆觸。", // [file:32]
-        descLook: "透過堆疊與厚塗，可強烈表現光影、質感與情緒張力。", // [file:32]
-        descUse: "常用於人物肖像、風景與高藝術性表現。", // [file:32]
+        descMedium: "以油性顏料創作，能呈現厚實、飽滿且層次豐富的色彩與筆觸。",
+        descLook: "透過堆疊與厚塗，可強烈表現光影、質感與情緒張力。",
+        descUse: "常用於人物肖像、風景與高藝術性表現。",
         image: "025.png"
       },
       {
@@ -707,9 +706,9 @@
         name: "浮世繪",
         type: "traditional",
         mood: "敘事、裝飾、日本美學",
-        descMedium: "日本江戶時代盛行的木版畫風格，平面化構圖與清晰線條是其特徵。", // [file:32]
-        descLook: "鮮明色塊與強烈裝飾性設計，常見浪、山、人物等主題。", // [file:32]
-        descUse: "多描繪人物、風景與日常生活，展現濃厚傳統美學與故事性。", // [file:32]
+        descMedium: "日本江戶時代盛行的木版畫風格，平面化構圖與清晰線條是其特徵。",
+        descLook: "鮮明色塊與強烈裝飾性設計，常見浪、山、人物等主題。",
+        descUse: "多描繪人物、風景與日常生活，展現濃厚傳統美學與故事性。",
         image: "026.png"
       },
       {
@@ -717,9 +716,9 @@
         name: "浮雕藝術",
         type: "design",
         mood: "莊重、歷史感、立體光影",
-        descMedium: "在平面基底上雕刻，讓形體向外凸起或內凹的立體藝術形式。", // [file:32]
-        descLook: "結合平面構圖與立體深度，光影變化清楚強調形體結構。", // [file:32]
-        descUse: "常用於建築裝飾、雕塑與具紀念性、歷史感的作品。", // [file:32]
+        descMedium: "在平面基底上雕刻，讓形體向外凸起或內凹的立體藝術形式。",
+        descLook: "結合平面構圖與立體深度，光影變化清楚強調形體結構。",
+        descUse: "常用於建築裝飾、雕塑與具紀念性、歷史感的作品。",
         image: "027.png"
       },
       {
@@ -727,9 +726,9 @@
         name: "野獸派繪畫",
         type: "painting",
         mood: "奔放、強色彩、情緒化",
-        descMedium: "以強烈、純粹色彩為核心，不追求寫實色彩，常用誇張對比色與大筆觸。", // [file:32]
-        descLook: "造型簡化，色彩主導畫面，重視情緒與力量感。", // [file:32]
-        descUse: "適合表現強烈情感與主觀視覺印象。", // [file:32]
+        descMedium: "以強烈、純粹色彩為核心，不追求寫實色彩，常用誇張對比色與大筆觸。",
+        descLook: "造型簡化，色彩主導畫面，重視情緒與力量感。",
+        descUse: "適合表現強烈情感與主觀視覺印象。",
         image: "028.png"
       },
       {
@@ -737,9 +736,9 @@
         name: "街頭塗鴉",
         type: "design",
         mood: "反叛、大膽、街頭文化",
-        descMedium: "源自城市公共空間，以噴漆與大字體、符號形式創作。", // [file:32]
-        descLook: "色彩鮮豔、構圖自由，充滿標語感與視覺衝擊力。", // [file:32]
-        descUse: "常用於表達個人態度、社會議題或街頭文化。", // [file:32]
+        descMedium: "源自城市公共空間，以噴漆與大字體、符號形式創作。",
+        descLook: "色彩鮮豔、構圖自由，充滿標語感與視覺衝擊力。",
+        descUse: "常用於表達個人態度、社會議題或街頭文化。",
         image: "029.png"
       },
       {
@@ -747,9 +746,9 @@
         name: "像素藝術",
         type: "design",
         mood: "復古、遊戲感、簡化造型",
-        descMedium: "以可見像素格為基本單位構成影像，造型與色塊高度簡化。", // [file:32]
-        descLook: "邊緣清晰、格點感明顯，帶有 8-bit / 16-bit 懷舊風格。", // [file:32]
-        descUse: "常用於復古遊戲、圖示設計與數位懷舊視覺。", // [file:32]
+        descMedium: "以可見像素格為基本單位構成影像，造型與色塊高度簡化。",
+        descLook: "邊緣清晰、格點感明顯，帶有 8-bit / 16-bit 懷舊風格。",
+        descUse: "常用於復古遊戲、圖示設計與數位懷舊視覺。",
         image: "030.png"
       },
       {
@@ -757,9 +756,9 @@
         name: "蒸汽波美學",
         type: "design",
         mood: "迷幻、懷舊、超現實",
-        descMedium: "融合復古數位文化與超現實元素，常見粉紫霓虹、低解析度與復古介面。", // [file:32]
-        descLook: "畫面常結合古典雕像與 80～90 年代流行符號，色彩虛幻夢境感強。", // [file:32]
-        descUse: "多用於音樂視覺、數位藝術與風格化插畫。", // [file:32]
+        descMedium: "融合復古數位文化與超現實元素，常見粉紫霓虹、低解析度與復古介面。",
+        descLook: "畫面常結合古典雕像與 80～90 年代流行符號，色彩虛幻夢境感強。",
+        descUse: "多用於音樂視覺、數位藝術與風格化插畫。",
         image: "031.png"
       },
       {
@@ -767,10 +766,314 @@
         name: "橡皮泥模型",
         type: "design",
         mood: "可愛、童趣、立體手作",
-        descMedium: "以橡皮泥或黏土手工塑形，造型圓潤且比例誇張，表面保留手捏痕跡。", // [file:32]
-        descLook: "立體感強、質地柔軟，給人溫暖與親切的視覺印象。", // [file:32]
-        descUse: "常用於角色模型、定格動畫與童趣風格視覺。", // [file:32]
+        descMedium: "以橡皮泥或黏土手工塑形，造型圓潤且比例誇張，表面保留手捏痕跡。",
+        descLook: "立體感強、質地柔軟，給人溫暖與親切的視覺印象。",
+        descUse: "常用於角色模型、定格動畫與童趣風格視覺。",
         image: "032.png"
+      },
+
+      // --- 新增 33–63 項 (依據文生圖藝術風格02.pdf) ---
+      {
+        id: 33,
+        name: "霓虹燈管藝術",
+        type: "design",
+        mood: "強烈、夜景、現代氛圍",
+        descMedium: "以霓虹燈管作為主要媒材的視覺藝術風格，透過發光線條與高對比色彩構成。",
+        descLook: "營造強烈的夜景感與現代氛圍，線條發光且色彩對比高。",
+        descUse: "常用於城市夜景、裝置藝術、品牌視覺與帶有未來感、潮流感的畫面。",
+        image: "033.png"
+      },
+      {
+        id: 34,
+        name: "Frutiger Aero",
+        type: "design",
+        mood: "清新、科技、樂觀未來",
+        descMedium: "2000年代中後期盛行的數位視覺美學，特色包含高光澤質感與玻璃感介面。",
+        descLook: "結合藍綠色調與自然元素（天空、水、草地），整體乾淨且充滿科技理想主義。",
+        descUse: "常見於作業系統介面、科技產品廣告與數位懷舊設計。",
+        image: "034.png"
+      },
+      {
+        id: 35,
+        name: "十字繡",
+        type: "traditional",
+        mood: "手作、規則、像素感",
+        descMedium: "以「X形針法」在格狀布料上繡出圖案的刺繡藝術形式。",
+        descLook: "畫面結構規則、像素感明顯，圖樣由一格一格累積而成，質感溫馨。",
+        descUse: "常用於裝飾圖案、插畫轉譯與帶有家庭溫暖氛圍的視覺表現。",
+        image: "035.png"
+      },
+      {
+        id: 36,
+        name: "羊毛氈",
+        type: "traditional",
+        mood: "柔軟、圓潤、療癒",
+        descMedium: "以羊毛纖維透過反覆戳刺或濕氈方式塑形的手作藝術。",
+        descLook: "作品質感柔軟、造型圓潤，表面帶有蓬鬆溫暖的纖維感。",
+        descUse: "常用於小型角色、公仔、動物造型，營造療癒、童趣的視覺風格。",
+        image: "036.png"
+      },
+      {
+        id: 37,
+        name: "沙畫藝術",
+        type: "traditional",
+        mood: "流動、詩意、瞬間性",
+        descMedium: "以細沙在平面或玻璃上創作圖像，透過手勢推抹與沙粒堆疊。",
+        descLook: "呈現流動、即時變化的畫面效果，具有強烈的光影與顆粒質感。",
+        descUse: "常用於舞台表演、故事敘事與情感表達強烈的動態視覺。",
+        image: "037.png"
+      },
+      {
+        id: 38,
+        name: "刮畫藝術",
+        type: "drawing",
+        mood: "強烈對比、戲劇性",
+        descMedium: "先在底層鋪上彩色，再覆蓋深色表層，透過刮除表面顯露下方色彩。",
+        descLook: "畫面線條鮮明、對比強烈（黑底亮線），帶有獨特的刻痕質感。",
+        descUse: "常用於插畫創作、兒童美術與具有神祕或戲劇效果的表現。",
+        image: "038.png"
+      },
+      {
+        id: 39,
+        name: "扁平化向量",
+        type: "design",
+        mood: "簡約、清晰、現代",
+        descMedium: "以簡化圖形、純色塊與清晰線條構成，不強調立體光影與材質。",
+        descLook: "重視結構、辨識度與整體一致性，視覺乾淨俐落。",
+        descUse: "常用於 UI/UX 設計、圖示 (Icon)、資訊圖表與現代插畫。",
+        image: "039.png"
+      },
+      {
+        id: 40,
+        name: "拼布藝術",
+        type: "traditional",
+        mood: "溫馨、層次、民藝風",
+        descMedium: "將不同顏色、圖案與材質的布料裁剪後再縫合而成的藝術形式。",
+        descLook: "畫面由多塊布片組成，花紋層次豐富，帶有明顯的手作溫度。",
+        descUse: "常用於被毯紋樣、服飾設計與營造復古、鄉村風格的視覺。",
+        image: "040.png"
+      },
+      {
+        id: 41,
+        name: "洛可可藝術",
+        type: "traditional",
+        mood: "優雅、奢華、輕快",
+        descMedium: "18世紀歐洲裝飾藝術風格，特色是柔和粉色調與精緻曲線。",
+        descLook: "華麗細節、S形曲線裝飾與輕快浪漫的氛圍，色彩多為粉嫩色系。",
+        descUse: "常用於宮廷題材、貴族生活描寫與浪漫主義風格創作。",
+        image: "041.png"
+      },
+      {
+        id: 42,
+        name: "迷幻藝術",
+        type: "design",
+        mood: "高飽和、扭曲、夢境感",
+        descMedium: "強調感官刺激與意識流動，常見高飽和色彩與流動變形。",
+        descLook: "特徵包括扭曲圖形、重複的萬花筒紋樣與視覺幻覺效果。",
+        descUse: "常用於音樂專輯封面、文化海報與超現實夢境主題。",
+        image: "042.png"
+      },
+      {
+        id: 43,
+        name: "普普藝術",
+        type: "design",
+        mood: "大眾、幽默、視覺衝擊",
+        descMedium: "將大眾文化與日常商品轉化為藝術，特色是絲網印刷般的質感。",
+        descLook: "高對比色彩、重複構圖、粗黑線條與色點（Ben-Day dots）。",
+        descUse: "常用於人物肖像、商業廣告與帶有諷刺意味的現代視覺。",
+        image: "043.png"
+      },
+      {
+        id: 44,
+        name: "好微笑黏土人",
+        type: "design",
+        mood: "可愛、收藏感、Q版",
+        descMedium: "源自 Good Smile Company 的公仔風格，強調二頭身比例。",
+        descLook: "大頭小身、圓潤造型、臉部表情可換，整體高度角色化且精緻。",
+        descUse: "常用於角色設計二創、玩具模型預覽與可愛風格插畫。",
+        image: "044.png"
+      },
+      {
+        id: 45,
+        name: "藍圖",
+        type: "design",
+        mood: "理性、專業、工程感",
+        descMedium: "模仿工程設計圖的視覺風格，以深藍底色搭配白色細線。",
+        descLook: "強調結構透視、比例標示與技術細節，視覺冷靜且精確。",
+        descUse: "常用於建築示意、機械結構解析與產品設計圖。",
+        image: "045.png"
+      },
+      // --- 以下為補充說明的項目 (46-63) ---
+      {
+        id: 46,
+        name: "新海誠風格",
+        type: "painting",
+        mood: "唯美、光影、空氣感",
+        descMedium: "源自新海誠動畫電影的視覺風格，結合高解析度數位繪景與攝影光學效果。",
+        descLook: "極度寫實的雲彩、強烈的鏡頭光暈與高飽和度色彩，畫面充滿透明感與情感張力。",
+        descUse: "適合描繪城市風景、天空、青春題材與強調氛圍的背景。",
+        image: "046.png"
+      },
+      {
+        id: 47,
+        name: "宮崎駿風格",
+        type: "painting",
+        mood: "自然、純真、治癒",
+        descMedium: "吉卜力工作室的經典手繪風格，結合水彩背景與賽璐珞角色。",
+        descLook: "色彩豐富但和諧自然，筆觸細膩，常包含飛行機械、茂密森林與可愛生物。",
+        descUse: "適合奇幻冒險、自然生態與療癒系的故事場景。",
+        image: "047.png"
+      },
+      {
+        id: 48,
+        name: "JOJO的奇妙冒險",
+        type: "drawing",
+        mood: "硬派、時尚、誇張",
+        descMedium: "荒木飛呂彥的漫畫風格，特徵是粗獷的輪廓線與厚重的黑色陰影。",
+        descLook: "角色姿勢極具戲劇性（JOJO立），色彩常違背常理（如綠色天空），帶有強烈時尚感。",
+        descUse: "適合表現強烈氣勢、戰鬥畫面與獨特的角色設計。",
+        image: "048.png"
+      },
+      {
+        id: 49,
+        name: "哥德式陰鬱",
+        type: "painting",
+        mood: "詭譎、浪漫、黑暗",
+        descMedium: "受哥德文學與提姆·波頓風格影響，多用黑灰冷色調與墨水質感。",
+        descLook: "人物通常蒼白瘦長，背景帶有維多利亞式建築或枯樹，氛圍神祕淒美。",
+        descUse: "常用於恐怖童話、萬聖節主題與黑色幽默風格創作。",
+        image: "049.png"
+      },
+      {
+        id: 50,
+        name: "人像",
+        type: "painting",
+        mood: "專注、寫實、神韻",
+        descMedium: "專注於人物面部特徵的繪畫或攝影風格，不限特定媒材。",
+        descLook: "強調五官結構、皮膚質感與眼神交流，背景通常簡化以突顯主體。",
+        descUse: "適合個人頭像、角色立繪與證件照風格生成。",
+        image: "050.png"
+      },
+      {
+        id: 51,
+        name: "電影肖像",
+        type: "painting",
+        mood: "故事性、質感、深邃",
+        descMedium: "模擬電影攝影機的鏡頭語言，包含專業佈光與色彩分級（Color Grading）。",
+        descLook: "具有景深效果（背景虛化）、戲劇性光影（如倫勃朗光）與底片顆粒感。",
+        descUse: "用於概念藝術、電影海報與強調敘事感的角色圖。",
+        image: "051.png"
+      },
+      {
+        id: 52,
+        name: "中國風",
+        type: "traditional",
+        mood: "典雅、寫意、東方美",
+        descMedium: "融合傳統水墨、工筆畫與現代數位繪圖的東方美學風格。",
+        descLook: "常見留白意境、飄逸的漢服線條、古典建築與硃砂/靛藍配色。",
+        descUse: "適合古風遊戲、仙俠小說封面與文化宣傳設計。",
+        image: "052.png"
+      },
+      {
+        id: 53,
+        name: "動漫",
+        type: "drawing",
+        mood: "二次元、活力、誇張",
+        descMedium: "日本商業動畫與漫畫的統稱風格，多為賽璐珞上色（Cell Shading）。",
+        descLook: "大眼角色、多彩髮色、線條流暢且表情豐富，光影邊緣清晰。",
+        descUse: "廣泛用於輕小說插圖、虛擬主播（VTuber）與同人創作。",
+        image: "053.png"
+      },
+      {
+        id: 54,
+        name: "3D",
+        type: "design",
+        mood: "立體、擬真、物理感",
+        descMedium: "使用 3D 軟體（如 Blender, C4D）渲染生成的圖像。",
+        descLook: "具有精確的空間遮蔽、光線追蹤與真實材質質感（金屬、玻璃、塑膠）。",
+        descUse: "適合產品展示、遊戲資產預覽與現代動態設計。",
+        image: "054.png"
+      },
+      // 注意：PDF 編號跳過 55，故此處直接接 56
+      {
+        id: 56,
+        name: "螢光畫",
+        type: "design",
+        mood: "迷幻、夜光、視覺衝擊",
+        descMedium: "模擬螢光顏料在紫外線（黑光燈）照射下的發光效果。",
+        descLook: "背景深暗，線條與色塊呈現高亮度的霓虹色（螢光綠、粉紅），對比極強。",
+        descUse: "常用於派對海報、迷幻藝術與賽博風格變體。",
+        image: "056.png"
+      },
+      {
+        id: 57,
+        name: "童書插畫",
+        type: "painting",
+        mood: "溫暖、想像、敘事",
+        descMedium: "模擬粉彩、水粉或拼貼等多種媒材，強調手繪質感。",
+        descLook: "造型圓潤簡化、色彩飽和且溫暖，構圖富有想像力與故事性。",
+        descUse: "專用於兒童繪本、教育教材與親子相關視覺設計。",
+        image: "057.png"
+      },
+      {
+        id: 58,
+        name: "角色設計",
+        type: "design",
+        mood: "結構、設定、多視角",
+        descMedium: "專為動畫或遊戲製作準備的設定稿風格，線條清晰明確。",
+        descLook: "通常包含角色的三視圖（正、側、背）、表情拆解與服裝細節說明。",
+        descUse: "適合遊戲開發、動畫前製與角色設定集。",
+        image: "058.png"
+      },
+      {
+        id: 59,
+        name: "莫內風格",
+        type: "painting",
+        mood: "印象、光感、朦朧",
+        descMedium: "印象派大師莫內的油畫風格，強調對光影與時間的瞬間捕捉。",
+        descLook: "不追求清晰輪廓，以細碎的色彩筆觸堆疊出光影變化與空氣流動感。",
+        descUse: "適合風景畫、花園場景與營造唯美藝術氛圍。",
+        image: "059.png"
+      },
+      {
+        id: 60,
+        name: "巴洛克",
+        type: "painting",
+        mood: "宏偉、戲劇、動態",
+        descMedium: "17世紀歐洲盛行的藝術風格，強調運動感與華麗裝飾。",
+        descLook: "畫面構圖動態強烈，明暗對比深沉，色彩濃郁且細節繁複。",
+        descUse: "適合史詩題材、歷史場景與營造莊嚴神聖的視覺。",
+        image: "060.png"
+      },
+      {
+        id: 61,
+        name: "林布蘭風格",
+        type: "painting",
+        mood: "深沉、靈魂、聚光",
+        descMedium: "荷蘭黃金時代畫家林布蘭的風格，以精湛的「明暗法」著稱。",
+        descLook: "背景深暗，光線集中在主體（如臉部），形成戲劇性的「三角光」效果。",
+        descUse: "適合高質感肖像、嚴肅敘事與強調內心戲的畫面。",
+        image: "061.png"
+      },
+      {
+        id: 62,
+        name: "皮克斯風格",
+        type: "design",
+        mood: "親切、精緻、國際化",
+        descMedium: "頂級 3D 動畫工作室的視覺風格，結合卡通造型與真實物理渲染。",
+        descLook: "角色造型誇張但討喜（大眼），材質細膩（如皮膚透光感），光影佈局講究。",
+        descUse: "適合 3D 角色設計、動畫電影海報與吉祥物設計。",
+        image: "062.png"
+      },
+      {
+        id: 63,
+        name: "水彩畫",
+        type: "painting",
+        mood: "隨性、藝術、暈染",
+        descMedium: "廣義的水彩藝術風格，強調水分的流動與顏料的自然擴散。",
+        descLook: "可見紙張紋理、顏料邊緣的水漬（水痕）與色彩的透明疊加。",
+        descUse: "適合文藝風格插畫、風景速寫與柔和的背景設計。",
+        image: "063.png"
       }
     ];
 
@@ -792,7 +1095,7 @@
         case "painting":
           return "色彩繪畫";
         case "design":
-          return "設計 / 立體";
+          return "設計 / 3D";
         case "traditional":
           return "傳統 / 文化";
         default:
@@ -820,6 +1123,9 @@
         const card = document.createElement("article");
         card.className = "card";
 
+        // 動態生成 ID 標籤，補零 (例如 #01, #63)
+        const idTag = `#${String(s.id).padStart(2, "0")}`;
+
         card.innerHTML = `
           <div class="card-header">
             <div>
@@ -829,7 +1135,7 @@
                 <span class="pill">${s.mood}</span>
               </div>
             </div>
-            <span class="style-id">#${String(s.id).padStart(2, "0")}</span>
+            <span class="style-id">${idTag}</span>
           </div>
 
           <div class="card-media">
@@ -881,4 +1187,3 @@
   </script>
 </body>
 </html>
-
